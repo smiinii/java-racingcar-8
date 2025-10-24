@@ -29,17 +29,6 @@ public class RoundTest {
     }
 
     @Test
-    @DisplayName("숫자가 맞으면 통과")
-    void trueDigitTest() {
-        // given
-        Round positiveRound = new Round("10");
-        Round NngativeRound = new Round("-10");
-        // then
-        assertThat(positiveRound.getRoundNumber()).isEqualTo(10);
-        assertThat(NngativeRound.getRoundNumber()).isEqualTo(-10);
-    }
-
-    @Test
     @DisplayName("음수면 예외처리")
     void notNegativeTest() {
         // given & when & then
