@@ -21,7 +21,12 @@ public class Round {
     }
 
     private void validateDigit(String input) {
-        if (!input.chars().allMatch(Character::isDigit)) {
+        String target = input;
+        if (input.startsWith("-")) {
+            target = input.substring(1);
+        }
+
+        if (!target.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
         }
     }

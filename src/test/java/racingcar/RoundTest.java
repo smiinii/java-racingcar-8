@@ -33,8 +33,10 @@ public class RoundTest {
     @DisplayName("숫자가 맞으면 통과")
     void trueDigitTest() {
         // given
-        Round round = new Round("10");
+        Round positiveRound = new Round("10");
+        Round NngativeRound = new Round("-10");
         // then
-        assertThat(round.getRoundNumber()).isEqualTo(10);
+        assertThat(positiveRound.getRoundNumber()).isEqualTo(10);
+        assertThat(NngativeRound.getRoundNumber()).isEqualTo(-10);
     }
 }
