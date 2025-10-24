@@ -21,7 +21,7 @@ public class RoundTest {
     
     @Test
     @DisplayName("숫자가 아니면 예외처리")
-    void vaildateDigitTest() {
+    void validateDigitTest() {
         // given & when & then
         assertThatThrownBy(() -> new Round("a"))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -38,5 +38,22 @@ public class RoundTest {
         // then
         assertThat(positiveRound.getRoundNumber()).isEqualTo(10);
         assertThat(NngativeRound.getRoundNumber()).isEqualTo(-10);
+    }
+
+    @Test
+    @DisplayName("음수면 예외처리")
+    void notNegativeTest() {
+        // given & when & then
+        assertThatThrownBy(() -> new Round("-10"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("정상 입력시 통과")
+    void roundTest() {
+        // given
+        Round round = new Round("10");
+        // then
+        assertThat(round.getRoundNumber()).isEqualTo(10);
     }
 }
