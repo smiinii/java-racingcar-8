@@ -23,13 +23,24 @@ public class ParserTest {
     }
 
     @Test
-    @DisplayName("구분자로 분리")
+    @DisplayName("구분자로 분리 확인")
     void inputGapRemoveTest() {
         // given
         Parser parser = new Parser();
         // when
-        List<String> carNames = parser.parseCarNames(" smini, sm");
+        List<String> carNames = parser.parseCarNames("smini,sm");
         // then
-        assertThat(carNames).containsExactly(" smini", " sm");
+        assertThat(carNames).containsExactly("smini", "sm");
+    }
+
+    @Test
+    @DisplayName("분리된 자동차 이름 공백 제거 확인")
+    void trimCarNameTest() {
+        // given
+        Parser parser = new Parser();
+        // when
+        List<String> carNames = parser.parseCarNames(" smini , sm ");
+        // then
+        assertThat(carNames).containsExactly("smini", "sm");
     }
 }
