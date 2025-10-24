@@ -31,7 +31,7 @@ public class RacingCarTest {
     }
 
     @Test
-    @DisplayName("자동차 이름이 영어가 아닐 시 예외처리")
+    @DisplayName("자동차 이름이 영어가 아닐시 예외처리")
     void carNameIsAlphabeticTest() {
         // given & when & then
         assertThatThrownBy(() -> new RacingCar("123"))
@@ -49,6 +49,23 @@ public class RacingCarTest {
     @Test
     @DisplayName("자동차 이름이 영어면 통과")
     void carNameIsAlphabeticTest2() {
+        // given
+        RacingCar racer = new RacingCar("smini");
+        // then
+        assertThat(racer.getCarName()).isEqualTo("smini");
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 5자 초과시 예외처리")
+    void carNameLengthTest() {
+        // given & when & then
+        assertThatThrownBy(() -> new RacingCar("smiinii"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 5자 이하면 통과")
+    void carNameLengthTest2() {
         // given
         RacingCar racer = new RacingCar("smini");
         // then
