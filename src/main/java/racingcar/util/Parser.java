@@ -4,9 +4,12 @@ import java.util.List;
 
 public class Parser {
 
+    private static final String DELIMITER = ",";
+
     public List<String> parseCarNames(String inputs) {
         validateEmpty(inputs);
-        return null;
+        List<String> notTrimCarNames = inputSplit(inputs);
+        return notTrimCarNames;
     }
 
     private void validateEmpty(String inputs) {
@@ -15,4 +18,7 @@ public class Parser {
         }
     }
 
+    private List<String> inputSplit(String inputs) {
+        return List.of(inputs.split(DELIMITER));
+    }
 }
