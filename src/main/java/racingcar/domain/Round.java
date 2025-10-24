@@ -2,6 +2,8 @@ package racingcar.domain;
 
 public class Round {
 
+    private static final String NEGATIVE_SIGN = "-";
+    private static final int SIGN_OFFSET = 1;
     private final int roundNumber;
 
     public Round(String input) {
@@ -23,8 +25,8 @@ public class Round {
 
     private void validateDigit(String input) {
         String target = input;
-        if (input.startsWith("-")) {
-            target = input.substring(1);
+        if (input.startsWith(NEGATIVE_SIGN)) {
+            target = input.substring(SIGN_OFFSET);
         }
 
         if (!target.chars().allMatch(Character::isDigit)) {
