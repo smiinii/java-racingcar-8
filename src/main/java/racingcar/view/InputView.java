@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    public String inputCarName() {
+    public String readCarName() {
         return Console.readLine();
     }
 
