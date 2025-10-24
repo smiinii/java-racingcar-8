@@ -9,7 +9,8 @@ public class Parser {
     public List<String> parseCarNames(String inputs) {
         validateEmpty(inputs);
         List<String> notTrimCarNames = inputSplit(inputs);
-        return notTrimCarNames;
+        List<String> carNames = trimCarNames(notTrimCarNames);
+        return carNames;
     }
 
     private void validateEmpty(String inputs) {
@@ -20,5 +21,9 @@ public class Parser {
 
     private List<String> inputSplit(String inputs) {
         return List.of(inputs.split(DELIMITER));
+    }
+
+    private List<String> trimCarNames(List<String> carNames) {
+        return carNames.stream().map(String::trim).toList();
     }
 }
