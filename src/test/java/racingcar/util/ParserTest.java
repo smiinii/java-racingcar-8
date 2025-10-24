@@ -24,7 +24,7 @@ public class ParserTest {
 
     @Test
     @DisplayName("구분자로 분리 확인")
-    void inputGapRemoveTest() {
+    void inputSplitTest() {
         // given
         Parser parser = new Parser();
         // when
@@ -42,5 +42,15 @@ public class ParserTest {
         List<String> carNames = parser.parseCarNames(" smini , sm ");
         // then
         assertThat(carNames).containsExactly("smini", "sm");
+    }
+
+    @Test
+    @DisplayName("분리된 자동차 이름이 빈 값일 경우 예외처리")
+    void carNamesEmptyTest() {
+        // given
+        Parser parser = new Parser();
+        // when & then
+        assertThatThrownBy(() -> parser.parseCarNames("smini,,sm"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
