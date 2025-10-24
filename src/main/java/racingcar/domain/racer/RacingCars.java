@@ -1,6 +1,5 @@
 package racingcar.domain.racer;
 
-import java.util.HashSet;
 import java.util.List;
 
 public class RacingCars {
