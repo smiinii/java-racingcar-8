@@ -8,4 +8,7 @@ public class InputView {
         return Console.readLine();
     }
 
+    public String readRoundCount() {
+        return Console.readLine();
+    }
 }
