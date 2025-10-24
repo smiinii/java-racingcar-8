@@ -7,6 +7,7 @@ public class Round {
     public Round(String input) {
         validateEmpty(input);
         validateDigit(input);
+        validatePositive(input);
         this.roundNumber = Integer.parseInt(input);
     }
 
@@ -28,6 +29,12 @@ public class Round {
 
         if (!target.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
+        }
+    }
+
+    private void validatePositive(String input) {
+        if (input.startsWith("-")) {
+            throw new IllegalArgumentException("음수는 허용되지 않습니다.");
         }
     }
 }
