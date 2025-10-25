@@ -35,7 +35,7 @@ public class Round {
     }
 
     private void validatePositive(String input) {
-        if (input.startsWith("-")) {
+        if (input.startsWith(NEGATIVE_SIGN)) {
             throw new IllegalArgumentException("음수는 허용되지 않습니다.");
         }
     }
