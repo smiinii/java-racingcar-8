@@ -1,6 +1,8 @@
 package racingcar.domain.racer;
 
+import racingcar.domain.moverule.MoveRule;
 import racingcar.util.generator.NumberGenerator;
+import racingcar.util.generator.RandomNumberGenerator;
 
 public class RacingCar implements Racer {
 
@@ -27,11 +29,11 @@ public class RacingCar implements Racer {
     }
 
     @Override
-    public Racer move(NumberGenerator numberGenerator) {
-        if (numberGenerator.getNumber() >= MOVE_CONDITION) {
-            return new RacingCar(carName, distance + SPEED);
+    public Racer move(MoveRule moveRule) {
+        if (!moveRule.canMove()) {
+            return this;
         }
-        return this;
+        return new RacingCar(carName, distance + SPEED);
     }
 
     @Override

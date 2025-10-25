@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.result.Result;
 import racingcar.util.Parser;
@@ -11,12 +12,12 @@ import java.util.Map;
 public class RacingService {
 
     private final Parser parser;
-    private final NumberGenerator numberGenerator;
+    private final MoveRule moveRule;
     private final Result result;
 
-    public RacingService(Parser parser, NumberGenerator numberGenerator, Result result) {
+    public RacingService(Parser parser, MoveRule moveRule, Result result) {
         this.parser = parser;
-        this.numberGenerator = numberGenerator;
+        this.moveRule = moveRule;
         this.result = result;
     }
 
@@ -25,7 +26,7 @@ public class RacingService {
     }
 
     public Map<String, Integer> roundStart(Racers racers) {
-        racers = racers.moveAll(numberGenerator);
+        racers = racers.moveAll(moveRule);
         return result.roundResult(racers);
     }
 

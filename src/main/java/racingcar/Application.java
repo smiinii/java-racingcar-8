@@ -1,7 +1,8 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
-import racingcar.domain.Round;
+import racingcar.domain.moverule.MoveRule;
+import racingcar.domain.moverule.RandomNumberRule;
 import racingcar.domain.result.Result;
 import racingcar.service.RacingService;
 import racingcar.util.Parser;
@@ -17,8 +18,9 @@ public class Application {
         Parser parser = new Parser();
         Result result = new Result();
         NumberGenerator numberGenerator = new RandomNumberGenerator();
+        MoveRule moveRule = new RandomNumberRule(numberGenerator);
 
-        RacingService racingService = new RacingService(parser, numberGenerator, result);
+        RacingService racingService = new RacingService(parser, moveRule, result);
         RacingController racingController = new RacingController(inputView, outputView, racingService);
 
         racingController.run();
