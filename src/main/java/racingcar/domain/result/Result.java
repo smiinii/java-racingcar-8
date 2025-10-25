@@ -56,11 +56,11 @@ public class Result {
         String winnerNames = "";
         if (winners.size() > 1) {
             for (int i = 0; i < winners.size(); i++) {
-                winnerNames = winners.stream().collect(Collectors.joining(", "));
+                winnerNames = String.join(", ", winners);
             }
             return winnerNames;
         }
-        winnerNames = winners.get(0);
+        winnerNames = winners.getFirst();
         return winnerNames;
     }
 }
