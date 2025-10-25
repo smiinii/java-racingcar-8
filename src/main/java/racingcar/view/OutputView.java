@@ -10,6 +10,9 @@ public class OutputView {
         System.out.println("실행 결과");
         for (String name : roundResult.keySet()) {
             int distance = roundResult.get(name);
+            if (distance == 0) {
+                continue;
+            }
             String distanceBar = "-".repeat(distance);
             System.out.println(name + " : " + distanceBar);
         }
