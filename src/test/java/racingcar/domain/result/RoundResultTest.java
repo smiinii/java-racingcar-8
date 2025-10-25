@@ -3,12 +3,11 @@ package racingcar.domain.result;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Round;
+import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.racer.Racer;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.racer.RacingCar;
 import racingcar.domain.racer.RacingCars;
-import racingcar.util.generator.FixedNumberGenerator;
-import racingcar.util.generator.NumberGenerator;
 
 import java.util.List;
 import java.util.Map;
@@ -21,8 +20,9 @@ public class RoundResultTest {
     @DisplayName("각 라운드별 모든 자동차 이름 및 이동거리 확인")
     void roundResultTest() {
         // given
-        NumberGenerator numberGenerator = new FixedNumberGenerator(5);
-        NumberGenerator numberGenerator2 = new FixedNumberGenerator(3);
+        MoveRule alwaysMove = () -> true;
+        MoveRule neverMove = () -> false;
+
         List<Racer> racer = List.of(
                 new RacingCar("smini"),
                 new RacingCar("lsm"),
@@ -32,9 +32,10 @@ public class RoundResultTest {
         Racers racers1 = new RacingCars(racer);
         Round round = new Round("3");
         Result result = new Result();
+
         // when & then
         for (int i = 1; i < round.getRoundNumber() + 1; i++) {
-            racers = racers.moveAll(numberGenerator);
+            racers = racers.moveAll(alwaysMove);
             Map<String, Integer> roundResult = result.roundResult(racers);
             assertThat(roundResult).hasSize(3)
                     .containsEntry("smini", i)
@@ -43,7 +44,7 @@ public class RoundResultTest {
         }
         // when & then
         for (int i = 1; i < round.getRoundNumber() + 1; i++) {
-            racers1 = racers1.moveAll(numberGenerator2);
+            racers1 = racers1.moveAll(neverMove);
             Map<String, Integer> roundResult = result.roundResult(racers1);
             assertThat(roundResult).hasSize(3)
                     .containsEntry("smini", 0)

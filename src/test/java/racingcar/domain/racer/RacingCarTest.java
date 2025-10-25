@@ -2,8 +2,7 @@ package racingcar.domain.racer;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.generator.FixedNumberGenerator;
-import racingcar.util.generator.NumberGenerator;
+import racingcar.domain.moverule.MoveRule;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -11,25 +10,25 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class RacingCarTest {
 
     @Test
-    @DisplayName("무작위 값이 4 이상일 경우 전진")
+    @DisplayName("이동 규칙이 true일 경우 전진")
     void carMoveTest() {
         // given
         Racer racer = new RacingCar("smini");
-        NumberGenerator numberGenerator = new FixedNumberGenerator(4);
+        MoveRule alwaysMove = () -> true;
         // when
-        RacingCar moveRacer = (RacingCar)racer.move(numberGenerator);
+        RacingCar moveRacer = (RacingCar)racer.move(alwaysMove);
         // then
         assertThat(moveRacer.getDistance()).isEqualTo(1);
     }
 
     @Test
-    @DisplayName("무작위 값이 4 미만일 경우 정지")
+    @DisplayName("이동 규칙이 false일 경우 정지")
     void carStopTest() {
         // given
         Racer racer = new RacingCar("smini");
-        NumberGenerator numberGenerator = new FixedNumberGenerator(3);
+        MoveRule neverMove = () -> false;
         // when
-        RacingCar stopRacer = (RacingCar)racer.move(numberGenerator);
+        RacingCar stopRacer = (RacingCar)racer.move(neverMove);
         // then
         assertThat(stopRacer.getDistance()).isEqualTo(0);
     }
