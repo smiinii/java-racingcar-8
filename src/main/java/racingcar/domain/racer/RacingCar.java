@@ -1,5 +1,7 @@
 package racingcar.domain.racer;
 
+import racingcar.util.generator.NumberGenerator;
+
 public class RacingCar implements Racer {
 
     private static final int MOVE_CONDITION = 4;
@@ -25,8 +27,8 @@ public class RacingCar implements Racer {
     }
 
     @Override
-    public Racer move(int randomNumber) {
-        if (randomNumber >= MOVE_CONDITION) {
+    public Racer move(NumberGenerator numberGenerator) {
+        if (numberGenerator.getNumber() >= MOVE_CONDITION) {
             return new RacingCar(carName, distance + SPEED);
         }
         return this;
