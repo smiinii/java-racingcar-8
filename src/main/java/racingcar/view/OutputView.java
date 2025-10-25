@@ -1,7 +1,4 @@
 package racingcar.view;
-
-import racingcar.domain.racer.Racers;
-
 import java.util.Map;
 
 public class OutputView {
