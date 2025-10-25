@@ -1,5 +1,7 @@
 package racingcar.domain.racer;
 
+import racingcar.util.generator.NumberGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +16,10 @@ public class RacingCars implements Racers {
     }
 
     @Override
-    public Racers moveAll(int randomNumber) {
+    public Racers moveAll(NumberGenerator numberGenerator) {
         List<Racer> newRacers = new ArrayList<>();
         for (Racer racer : racers) {
-            newRacers.add(racer.move(randomNumber));
+            newRacers.add(racer.move(numberGenerator));
         }
         return new RacingCars(newRacers);
     }
