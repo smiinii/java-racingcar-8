@@ -5,6 +5,7 @@ public class RacingCar implements Racer {
     private static final int MOVE_CONDITION = 4;
     private static final int SPEED = 1;
     private static final int MAX_CARNAME_LENGTH = 5;
+    private static final String ALPHABETIC = "^[a-zA-Z]+$";
 
     private final String carName;
     private final int distance;
@@ -42,7 +43,7 @@ public class RacingCar implements Racer {
     }
 
     private void validateCarNameIsAlphabetic(String carName) {
-        if (!carName.matches("^[a-zA-Z]+$")) {
+        if (!carName.matches(ALPHABETIC)) {
             throw new IllegalArgumentException("자동차 이름은 영어만 허용합니다.");
         }
     }
