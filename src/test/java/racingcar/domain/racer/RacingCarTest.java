@@ -2,6 +2,8 @@ package racingcar.domain.racer;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.generator.FixedNumberGenerator;
+import racingcar.util.generator.NumberGenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -13,8 +15,9 @@ public class RacingCarTest {
     void carMoveTest() {
         // given
         Racer racer = new RacingCar("smini");
+        NumberGenerator numberGenerator = new FixedNumberGenerator(4);
         // when
-        RacingCar moveRacer = (RacingCar)racer.move(4);
+        RacingCar moveRacer = (RacingCar)racer.move(numberGenerator);
         // then
         assertThat(moveRacer.getDistance()).isEqualTo(1);
     }
@@ -24,8 +27,9 @@ public class RacingCarTest {
     void carStopTest() {
         // given
         Racer racer = new RacingCar("smini");
+        NumberGenerator numberGenerator = new FixedNumberGenerator(3);
         // when
-        RacingCar stopRacer = (RacingCar)racer.move(3);
+        RacingCar stopRacer = (RacingCar)racer.move(numberGenerator);
         // then
         assertThat(stopRacer.getDistance()).isEqualTo(0);
     }

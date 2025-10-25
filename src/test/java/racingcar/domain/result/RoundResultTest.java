@@ -7,6 +7,8 @@ import racingcar.domain.racer.Racer;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.racer.RacingCar;
 import racingcar.domain.racer.RacingCars;
+import racingcar.util.generator.FixedNumberGenerator;
+import racingcar.util.generator.NumberGenerator;
 
 import java.util.List;
 import java.util.Map;
@@ -19,6 +21,8 @@ public class RoundResultTest {
     @DisplayName("각 라운드별 모든 자동차 이름 및 이동거리 확인")
     void roundResultTest() {
         // given
+        NumberGenerator numberGenerator = new FixedNumberGenerator(5);
+        NumberGenerator numberGenerator2 = new FixedNumberGenerator(3);
         List<Racer> racer = List.of(
                 new RacingCar("smini"),
                 new RacingCar("lsm"),
@@ -30,7 +34,7 @@ public class RoundResultTest {
         Result result = new Result();
         // when & then
         for (int i = 1; i < round.getRoundNumber() + 1; i++) {
-            racers = racers.moveAll(5);
+            racers = racers.moveAll(numberGenerator);
             Map<String, Integer> roundResult = result.roundResult(racers);
             assertThat(roundResult).hasSize(3)
                     .containsEntry("smini", i)
@@ -39,7 +43,7 @@ public class RoundResultTest {
         }
         // when & then
         for (int i = 1; i < round.getRoundNumber() + 1; i++) {
-            racers1 = racers1.moveAll(3);
+            racers1 = racers1.moveAll(numberGenerator2);
             Map<String, Integer> roundResult = result.roundResult(racers1);
             assertThat(roundResult).hasSize(3)
                     .containsEntry("smini", 0)
