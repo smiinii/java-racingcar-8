@@ -52,7 +52,7 @@ public class RacingCarTest {
         // given
         RacingCar racer = new RacingCar("smini");
         // then
-        assertThat(racer.getCarName()).isEqualTo("smini");
+        assertThat(racer.getName()).isEqualTo("smini");
     }
 
     @Test
@@ -69,6 +69,6 @@ public class RacingCarTest {
         // given
         RacingCar racer = new RacingCar("smini");
         // then
-        assertThat(racer.getCarName()).isEqualTo("smini");
+        assertThat(racer.getName()).isEqualTo("smini");
     }
 }
