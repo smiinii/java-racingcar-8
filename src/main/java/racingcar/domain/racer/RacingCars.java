@@ -1,7 +1,6 @@
 package racingcar.domain.racer;
 
 import racingcar.domain.moverule.MoveRule;
-import racingcar.util.generator.NumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
