@@ -6,7 +6,6 @@ import racingcar.util.generator.RandomNumberGenerator;
 
 public class RacingCar implements Racer {
 
-    private static final int MOVE_CONDITION = 4;
     private static final int SPEED = 1;
     private static final int MAX_CARNAME_LENGTH = 5;
     private static final String ALPHABETIC = "^[a-zA-Z]+$";
