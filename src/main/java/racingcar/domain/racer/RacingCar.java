@@ -5,6 +5,7 @@ public class RacingCar implements Racer {
     private static final int MOVE_CONDITION = 4;
     private static final int SPEED = 1;
     private static final int MAX_CARNAME_LENGTH = 5;
+
     private final String carName;
     private final int distance;
 
@@ -30,10 +31,12 @@ public class RacingCar implements Racer {
         return this;
     }
 
-    public String getCarName() {
+    @Override
+    public String getName() {
         return carName;
     }
 
+    @Override
     public int getDistance() {
         return distance;
     }
@@ -49,5 +52,4 @@ public class RacingCar implements Racer {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
-
 }
