@@ -27,12 +27,12 @@ public class RoundResultTest {
         Racers racers = new RacingCars(racer);
         Racers racers1 = new RacingCars(racer);
         Round round = new Round("3");
-        RoundResult roundResult = new RoundResult();
+        Result result = new Result();
         // when & then
         for (int i = 1; i < round.getRoundNumber() + 1; i++) {
             racers = racers.moveAll(5);
-            Map<String, Integer> result = roundResult.addRoundResult(racers);
-            assertThat(result).hasSize(3)
+            Map<String, Integer> roundResult = result.roundResult(racers);
+            assertThat(roundResult).hasSize(3)
                     .containsEntry("smini", i)
                     .containsEntry("lsm", i)
                     .containsEntry("sm", i);
@@ -40,8 +40,8 @@ public class RoundResultTest {
         // when & then
         for (int i = 1; i < round.getRoundNumber() + 1; i++) {
             racers1 = racers1.moveAll(3);
-            Map<String, Integer> result = roundResult.addRoundResult(racers1);
-            assertThat(result).hasSize(3)
+            Map<String, Integer> roundResult = result.roundResult(racers1);
+            assertThat(roundResult).hasSize(3)
                     .containsEntry("smini", 0)
                     .containsEntry("lsm", 0)
                     .containsEntry("sm", 0);
