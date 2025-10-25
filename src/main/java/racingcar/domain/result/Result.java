@@ -55,7 +55,7 @@ public class Result {
     private String joinWinnerNames(List<String> winners) {
         String winnerNames = "";
         if (winners.size() > 1) {
-            for (int i = 0; i < winners.size() - 1; i++) {
+            for (int i = 0; i < winners.size(); i++) {
                 winnerNames = winners.stream().collect(Collectors.joining(", "));
             }
             return winnerNames;
