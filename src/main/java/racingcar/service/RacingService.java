@@ -3,7 +3,7 @@ package racingcar.service;
 import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.result.Result;
-import racingcar.util.Parser;
+import racingcar.domain.Parser;
 
 import java.util.List;
 import java.util.Map;

@@ -5,7 +5,7 @@ import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.moverule.RandomNumberRule;
 import racingcar.domain.result.Result;
 import racingcar.service.RacingService;
-import racingcar.util.Parser;
+import racingcar.domain.Parser;
 import racingcar.domain.generator.NumberGenerator;
 import racingcar.domain.generator.RandomNumberGenerator;
 import racingcar.view.InputView;
