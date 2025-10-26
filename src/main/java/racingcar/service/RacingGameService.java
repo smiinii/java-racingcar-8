@@ -8,13 +8,13 @@ import racingcar.domain.Parser;
 import java.util.List;
 import java.util.Map;
 
-public class RacingService {
+public class RacingGameService {
 
     private final Parser parser;
     private final MoveRule moveRule;
     private final Result result;
 
-    public RacingService(Parser parser, MoveRule moveRule, Result result) {
+    public RacingGameService(Parser parser, MoveRule moveRule, Result result) {
         this.parser = parser;
         this.moveRule = moveRule;
         this.result = result;

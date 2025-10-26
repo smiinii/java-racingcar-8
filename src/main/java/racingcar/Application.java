@@ -4,7 +4,7 @@ import racingcar.controller.RacingGameController;
 import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.moverule.RandomNumberRule;
 import racingcar.domain.Result;
-import racingcar.service.RacingService;
+import racingcar.service.RacingGameService;
 import racingcar.domain.Parser;
 import racingcar.domain.generator.NumberGenerator;
 import racingcar.domain.generator.RandomNumberGenerator;
@@ -20,7 +20,7 @@ public class Application {
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         MoveRule moveRule = new RandomNumberRule(numberGenerator);
 
-        RacingService racingService = new RacingService(parser, moveRule, result);
+        RacingGameService racingService = new RacingGameService(parser, moveRule, result);
         RacingGameController racingController = new RacingGameController(inputView, outputView, racingService);
 
         racingController.run();

@@ -5,7 +5,7 @@ import racingcar.domain.racer.Racer;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.racer.RacingCar;
 import racingcar.domain.racer.RacingCars;
-import racingcar.service.RacingService;
+import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,9 +17,9 @@ public class RacingGameController {
 
     private InputView inputView;
     private OutputView outputView;
-    private RacingService racingService;
+    private RacingGameService racingService;
 
-    public RacingGameController(InputView inputView, OutputView outputView, RacingService racingService) {
+    public RacingGameController(InputView inputView, OutputView outputView, RacingGameService racingService) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingService = racingService;
