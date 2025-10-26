@@ -29,8 +29,7 @@ public class RacingGameController {
         String input = inputView.readCarName();
         List<String> inputList = racingService.parseInputs(input);
 
-        String roundCount = inputView.readRoundCount();
-        Round round = new Round(roundCount);
+        Round round = Round.of(inputView.readRoundCount());
 
         List<Racer> racerList = makeRacer(inputList);
         Racers racers = new RacingCars(racerList);

@@ -31,7 +31,7 @@ public class RoundResultTest {
         );
         Racers racers = new RacingCars(racer);
         Racers racers1 = new RacingCars(racer);
-        Round round = new Round("3");
+        Round round = Round.of("3");
         Result result = new Result();
 
         // when & then

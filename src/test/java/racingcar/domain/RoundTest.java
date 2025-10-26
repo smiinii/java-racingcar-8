@@ -12,9 +12,9 @@ public class RoundTest {
     @DisplayName("입력 값이 비어있으면 예외처리")
     void inputEmptyTest() {
         // given & when & then
-        assertThatThrownBy(() -> new Round(""))
+        assertThatThrownBy(() -> Round.of(""))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Round("  "))
+        assertThatThrownBy(() -> Round.of("  "))
                 .isInstanceOf(IllegalArgumentException.class);
     }
     
@@ -22,9 +22,9 @@ public class RoundTest {
     @DisplayName("숫자가 아니면 예외처리")
     void validateDigitTest() {
         // given & when & then
-        assertThatThrownBy(() -> new Round("a"))
+        assertThatThrownBy(() -> Round.of("a"))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Round("^"))
+        assertThatThrownBy(() -> Round.of("^"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -32,7 +32,7 @@ public class RoundTest {
     @DisplayName("음수면 예외처리")
     void notNegativeTest() {
         // given & when & then
-        assertThatThrownBy(() -> new Round("-10"))
+        assertThatThrownBy(() -> Round.of("-10"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -40,7 +40,7 @@ public class RoundTest {
     @DisplayName("정상 입력시 통과")
     void roundTest() {
         // given
-        Round round = new Round("10");
+        Round round = Round.of("10");
         // then
         assertThat(round.getRoundNumber()).isEqualTo(10);
     }
