@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.controller.RacingController;
+import racingcar.controller.RacingGameController;
 import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.moverule.RandomNumberRule;
 import racingcar.domain.Result;
@@ -21,7 +21,7 @@ public class Application {
         MoveRule moveRule = new RandomNumberRule(numberGenerator);
 
         RacingService racingService = new RacingService(parser, moveRule, result);
-        RacingController racingController = new RacingController(inputView, outputView, racingService);
+        RacingGameController racingController = new RacingGameController(inputView, outputView, racingService);
 
         racingController.run();
     }

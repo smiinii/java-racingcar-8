@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class RacingController {
+public class RacingGameController {
 
     private InputView inputView;
     private OutputView outputView;
     private RacingService racingService;
 
-    public RacingController(InputView inputView, OutputView outputView, RacingService racingService) {
+    public RacingGameController(InputView inputView, OutputView outputView, RacingService racingService) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingService = racingService;
