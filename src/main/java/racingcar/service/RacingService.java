@@ -2,7 +2,7 @@ package racingcar.service;
 
 import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.racer.Racers;
-import racingcar.domain.result.Result;
+import racingcar.domain.Result;
 import racingcar.domain.Parser;
 
 import java.util.List;

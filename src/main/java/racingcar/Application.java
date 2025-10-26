@@ -3,7 +3,7 @@ package racingcar;
 import racingcar.controller.RacingController;
 import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.moverule.RandomNumberRule;
-import racingcar.domain.result.Result;
+import racingcar.domain.Result;
 import racingcar.service.RacingService;
 import racingcar.domain.Parser;
 import racingcar.domain.generator.NumberGenerator;
