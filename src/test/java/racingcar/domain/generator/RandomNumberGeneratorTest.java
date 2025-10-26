@@ -2,8 +2,7 @@ package racingcar.domain.generator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.generator.NumberGenerator;
-import racingcar.util.generator.RandomNumberGenerator;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class RandomNumberGeneratorTest {

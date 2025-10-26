@@ -1,8 +1,6 @@
 package racingcar.domain.racer;
 
 import racingcar.domain.moverule.MoveRule;
-import racingcar.util.generator.NumberGenerator;
-import racingcar.util.generator.RandomNumberGenerator;
 
 public class RacingCar implements Racer {
 

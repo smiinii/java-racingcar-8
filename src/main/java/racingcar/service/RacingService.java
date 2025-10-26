@@ -4,7 +4,6 @@ import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.result.Result;
 import racingcar.util.Parser;
-import racingcar.util.generator.NumberGenerator;
 
 import java.util.List;
 import java.util.Map;
