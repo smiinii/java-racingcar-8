@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Round;
+import racingcar.dto.RoundUpdate;
 import racingcar.domain.racer.Racer;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.racer.RacingCar;
@@ -11,7 +12,6 @@ import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class RacingGameController {
 
@@ -48,8 +48,9 @@ public class RacingGameController {
 
     private void racingStart(Racers racers, Round round) {
         for (int i = 0; i < round.getRoundNumber(); i++) {
-            Map<String, Integer> roundResult = racingService.roundStart(racers);
-            outputView.printRoundResult(roundResult);
+            RoundUpdate roundUpdate = racingService.roundStart(racers);
+            racers = roundUpdate.getRacers();
+            outputView.printRoundResult(roundUpdate.getRoundResult());
         }
         outputView.printGameResult(racingService.gameEnd(racers));
     }

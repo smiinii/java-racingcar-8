@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.dto.RoundUpdate;
 import racingcar.domain.moverule.MoveRule;
 import racingcar.domain.racer.Racers;
 import racingcar.domain.Result;
@@ -24,9 +25,10 @@ public class RacingGameService {
         return parser.parseCarNames(input);
     }
 
-    public Map<String, Integer> roundStart(Racers racers) {
-        racers = racers.moveAll(moveRule);
-        return result.roundResult(racers);
+    public RoundUpdate roundStart(Racers racers) {
+        Racers updateRacers = racers.moveAll(moveRule);
+        Map<String, Integer> roundResult = result.roundResult(updateRacers);
+        return new RoundUpdate(updateRacers, roundResult);
     }
 
     public String gameEnd(Racers racers) {
