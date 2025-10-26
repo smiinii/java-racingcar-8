@@ -12,9 +12,9 @@ public class RacingCarsTest {
     @DisplayName("자동차 이름이 중복되면 예외처리")
     void carNameDuplicationTest() {
         List<Racer> racingCars = List.of(
-                new RacingCar("smini"),
-                new RacingCar("smini"),
-                new RacingCar("sm")
+                RacingCar.of("smini"),
+                RacingCar.of("smini"),
+                RacingCar.of("sm")
         );
         // given & then
         assertThatThrownBy(() -> new RacingCars(racingCars))
@@ -26,9 +26,9 @@ public class RacingCarsTest {
     void carNameDuplicationTest2() {
         // given
         List<Racer> racingCars = List.of(
-                new RacingCar("smini"),
-                new RacingCar("lsm"),
-                new RacingCar("sm")
+                RacingCar.of("smini"),
+                RacingCar.of("lsm"),
+                RacingCar.of("sm")
         );
         // when & then
         new RacingCars(racingCars);

@@ -13,7 +13,7 @@ public class RacingCarTest {
     @DisplayName("이동 규칙이 true일 경우 전진")
     void carMoveTest() {
         // given
-        Racer racer = new RacingCar("smini");
+        Racer racer = RacingCar.of("smini");
         MoveRule alwaysMove = () -> true;
         // when
         RacingCar moveRacer = (RacingCar)racer.move(alwaysMove);
@@ -25,7 +25,7 @@ public class RacingCarTest {
     @DisplayName("이동 규칙이 false일 경우 정지")
     void carStopTest() {
         // given
-        Racer racer = new RacingCar("smini");
+        Racer racer = RacingCar.of("smini");
         MoveRule neverMove = () -> false;
         // when
         RacingCar stopRacer = (RacingCar)racer.move(neverMove);
@@ -37,15 +37,15 @@ public class RacingCarTest {
     @DisplayName("자동차 이름이 영어가 아닐시 예외처리")
     void carNameIsAlphabeticTest() {
         // given & when & then
-        assertThatThrownBy(() -> new RacingCar("123"))
+        assertThatThrownBy(() -> RacingCar.of("123"))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new RacingCar("성민"))
+        assertThatThrownBy(() -> RacingCar.of("성민"))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new RacingCar("!!!"))
+        assertThatThrownBy(() -> RacingCar.of("!!!"))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new RacingCar("smini1"))
+        assertThatThrownBy(() -> RacingCar.of("smini1"))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new RacingCar("smini!"))
+        assertThatThrownBy(() -> RacingCar.of("smini!"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -53,7 +53,7 @@ public class RacingCarTest {
     @DisplayName("자동차 이름이 영어면 통과")
     void carNameIsAlphabeticTest2() {
         // given
-        RacingCar racer = new RacingCar("smini");
+        RacingCar racer = RacingCar.of("smini");
         // then
         assertThat(racer.getName()).isEqualTo("smini");
     }
@@ -62,7 +62,7 @@ public class RacingCarTest {
     @DisplayName("자동차 이름이 5자 초과시 예외처리")
     void carNameLengthTest() {
         // given & when & then
-        assertThatThrownBy(() -> new RacingCar("smiinii"))
+        assertThatThrownBy(() -> RacingCar.of("smiinii"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -70,7 +70,7 @@ public class RacingCarTest {
     @DisplayName("자동차 이름이 5자 이하면 통과")
     void carNameLengthTest2() {
         // given
-        RacingCar racer = new RacingCar("smini");
+        RacingCar racer = RacingCar.of("smini");
         // then
         assertThat(racer.getName()).isEqualTo("smini");
     }

@@ -25,9 +25,9 @@ public class RoundResultTest {
         MoveRule neverMove = () -> false;
 
         List<Racer> racer = List.of(
-                new RacingCar("smini"),
-                new RacingCar("lsm"),
-                new RacingCar("sm")
+                RacingCar.of("smini"),
+                RacingCar.of("lsm"),
+                RacingCar.of("sm")
         );
         Racers racers = new RacingCars(racer);
         Racers racers1 = new RacingCars(racer);
