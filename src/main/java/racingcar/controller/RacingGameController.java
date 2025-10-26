@@ -40,7 +40,7 @@ public class RacingGameController {
     private List<Racer> makeRacer(List<String> inputList) {
         List<Racer> racerList = new ArrayList<>();
         for (int i = 0; i < inputList.size(); i++) {
-            racerList.add(new RacingCar(inputList.get(i)));
+            racerList.add(RacingCar.of(inputList.get(i)));
         }
         return racerList;
     }

@@ -11,18 +11,15 @@ public class RacingCar implements Racer {
     private final String carName;
     private final int distance;
 
-    public RacingCar(String carName) {
-        validateCarNameIsAlphabetic(carName);
-        validateCarNameLength(carName);
-        this.carName = carName;
-        this.distance = 0;
-    }
-
-    public RacingCar(String carName, int distance) {
-        validateCarNameIsAlphabetic(carName);
-        validateCarNameLength(carName);
+    private RacingCar(String carName, int distance) {
         this.carName = carName;
         this.distance = distance;
+    }
+
+    public static RacingCar of(String carName) {
+        validateCarNameIsAlphabetic(carName);
+        validateCarNameLength(carName);
+        return new RacingCar(carName, 0);
     }
 
     @Override
@@ -43,13 +40,13 @@ public class RacingCar implements Racer {
         return distance;
     }
 
-    private void validateCarNameIsAlphabetic(String carName) {
+    private static void validateCarNameIsAlphabetic(String carName) {
         if (!carName.matches(ALPHABETIC)) {
             throw new IllegalArgumentException("자동차 이름은 영어만 허용합니다.");
         }
     }
 
-    private void validateCarNameLength(String carName) {
+    private static void validateCarNameLength(String carName) {
         if (carName.length() > MAX_CARNAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
