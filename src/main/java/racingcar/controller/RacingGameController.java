@@ -2,15 +2,12 @@ package racingcar.controller;
 
 import racingcar.domain.Round;
 import racingcar.dto.RoundUpdate;
-import racingcar.domain.racer.Racer;
 import racingcar.domain.racer.Racers;
-import racingcar.domain.racer.RacingCar;
 import racingcar.domain.racer.RacingCars;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGameController {
@@ -27,22 +24,13 @@ public class RacingGameController {
 
     public void run() {
         String input = inputView.readCarName();
-        List<String> inputList = racingService.parseInputs(input);
+        List<String> parseInputs = racingService.parseInputs(input);
+        Racers racers = RacingCars.from(parseInputs);
 
-        Round round = Round.of(inputView.readRoundCount());
-
-        List<Racer> racerList = makeRacer(inputList);
-        Racers racers = new RacingCars(racerList);
+        String roundCount = inputView.readRoundCount();
+        Round round = Round.of(roundCount);
 
         racingStart(racers, round);
-    }
-
-    private List<Racer> makeRacer(List<String> inputList) {
-        List<Racer> racerList = new ArrayList<>();
-        for (int i = 0; i < inputList.size(); i++) {
-            racerList.add(RacingCar.of(inputList.get(i)));
-        }
-        return racerList;
     }
 
     private void racingStart(Racers racers, Round round) {
