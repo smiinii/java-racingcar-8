@@ -30,7 +30,7 @@ public class Parser {
 
     private void validateCarNamesEmpty(List<String> inputs) {
         if (inputs.stream().anyMatch(String::isEmpty)) {
-            throw new IllegalArgumentException("자동차 이름을 미입력 하였습니다.");
+            throw new IllegalArgumentException("입력 사이에 빈 값이 있습니다.");
         }
     }
 }
