@@ -4,6 +4,7 @@ import racingcar.domain.moverule.MoveRule;
 
 public class RacingCar implements Racer {
 
+    private static final int INITIAL_RACER_POSITION = 0;
     private static final int SPEED = 1;
     private static final int MAX_CARNAME_LENGTH = 5;
     private static final String ALPHABETIC = "^[a-zA-Z]+$";
@@ -19,7 +20,7 @@ public class RacingCar implements Racer {
     public static RacingCar of(String carName) {
         validateCarNameIsAlphabetic(carName);
         validateCarNameLength(carName);
-        return new RacingCar(carName, 0);
+        return new RacingCar(carName, INITIAL_RACER_POSITION);
     }
 
     @Override
