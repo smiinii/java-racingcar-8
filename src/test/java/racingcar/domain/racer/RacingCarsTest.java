@@ -11,13 +11,9 @@ public class RacingCarsTest {
     @Test
     @DisplayName("자동차 이름이 중복되면 예외처리")
     void carNameDuplicationTest() {
-        List<Racer> racingCars = List.of(
-                RacingCar.of("smini"),
-                RacingCar.of("smini"),
-                RacingCar.of("sm")
-        );
+        List<String> racingCars = List.of("smini", "smini", "sm");
         // given & then
-        assertThatThrownBy(() -> new RacingCars(racingCars))
+        assertThatThrownBy(() -> RacingCars.from(racingCars))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -25,12 +21,8 @@ public class RacingCarsTest {
     @DisplayName("자동차 이름이 중복되지 않으면 통과")
     void carNameDuplicationTest2() {
         // given
-        List<Racer> racingCars = List.of(
-                RacingCar.of("smini"),
-                RacingCar.of("lsm"),
-                RacingCar.of("sm")
-        );
+        List<String> racingCars = List.of("smini", "lsm", "sm");
         // when & then
-        new RacingCars(racingCars);
+        RacingCars.from(racingCars);
     }
 }

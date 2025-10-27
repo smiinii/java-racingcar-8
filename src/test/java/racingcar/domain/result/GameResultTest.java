@@ -30,7 +30,7 @@ public class GameResultTest {
         Racer sm = RacingCar.of("sm");
         for (int i = 0; i < 1; i++) sm = sm.move(alwaysMove);
 
-        Racers racers = new RacingCars(List.of(smini, lsm, sm));
+        Racers racers = RacingCars.of(List.of(smini, lsm, sm));
         Result result = new Result();
 
         // when
@@ -55,7 +55,7 @@ public class GameResultTest {
         Racer sm = RacingCar.of("sm");
         for (int i = 0; i < 3; i++) sm = sm.move(alwaysMove);
 
-        Racers racers = new RacingCars(List.of(smini, lsm, sm));
+        Racers racers = RacingCars.of(List.of(smini, lsm, sm));
         Result result = new Result();
 
         // when

@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Result;
 import racingcar.domain.Round;
 import racingcar.domain.moverule.MoveRule;
-import racingcar.domain.racer.Racer;
 import racingcar.domain.racer.Racers;
-import racingcar.domain.racer.RacingCar;
 import racingcar.domain.racer.RacingCars;
 
 import java.util.List;
@@ -24,13 +22,9 @@ public class RoundResultTest {
         MoveRule alwaysMove = () -> true;
         MoveRule neverMove = () -> false;
 
-        List<Racer> racer = List.of(
-                RacingCar.of("smini"),
-                RacingCar.of("lsm"),
-                RacingCar.of("sm")
-        );
-        Racers racers = new RacingCars(racer);
-        Racers racers1 = new RacingCars(racer);
+        List<String> racer = List.of("smini", "lsm", "sm");
+        Racers racers = RacingCars.from(racer);
+        Racers racers1 = RacingCars.from(racer);
         Round round = Round.of("3");
         Result result = new Result();
 
